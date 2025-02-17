@@ -23,10 +23,9 @@ func RunForm(t *template.Template) {
 	if len(fields) == 0 {
 		return
 	}
-	form := huh.NewForm(
+	huh.NewForm(
 		huh.NewGroup(
 			fields...,
 		),
-	)
-	form.Run()
+	).WithHeight(4).Run()
 }
