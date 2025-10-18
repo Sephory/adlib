@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/sephory/sundae/form"
-	"github.com/sephory/sundae/template"
+	"github.com/sephory/adlib/form"
+	"github.com/sephory/adlib/template"
 )
 
 func main() {

@@ -2,7 +2,7 @@ package form
 
 import (
 	"github.com/charmbracelet/huh"
-	"github.com/sephory/sundae/template"
+	"github.com/sephory/adlib/template"
 )
 
 func RunForm(t *template.Template) {

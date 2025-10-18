@@ -1,4 +1,4 @@
-module github.com/sephory/sundae
+module github.com/sephory/adlib
 
 go 1.24.0
 

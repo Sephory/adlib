@@ -23,7 +23,7 @@ func (t *Template) GetValues() map[string]string {
 
 func (t *Template) Execute() (string, error) {
 	var builder strings.Builder
-	textTemplate, err := template.New("Sundae Template").Parse(t.Text)
+	textTemplate, err := template.New("Adlib Template").Parse(t.Text)
 	if err != nil {
 		return "", err
 	}
