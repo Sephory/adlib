@@ -31,12 +31,12 @@ func makeFieldsFromMatches(matches [][]string) []*Field {
 	fields := make(map[string]*Field)
 	for _, m := range matches {
 		name := m[1]
-		if _, ok := fields[name]; ok {
-			continue
-		}
-		f := Field{
+		f := &Field{
 			Name:  name,
 			IsSet: false,
+		}
+		if field, ok := fields[name]; ok {
+			f = field
 		}
 		options := strings.Split(m[2], "|")
 		for i, o := range options[1:] {
@@ -76,14 +76,17 @@ func makeFieldsFromMatches(matches [][]string) []*Field {
 				}
 			}
 		}
+		fields[name] = f
+	}
+
+	var fieldSlice []*Field
+	for _, f := range fields {
+		if f.FormType == "" {
+			f.FormType = Input
+		}
 		if f.Prompt == "" {
 			f.Prompt = f.Name + ":"
 		}
-		fields[name] = &f
-
-	}
-	var fieldSlice []*Field
-	for _, f := range fields {
 		fieldSlice = append(fieldSlice, f)
 	}
 	sort.Slice(fieldSlice, func(i, j int) bool {
